@@ -16,10 +16,11 @@ const TechnicalSection: React.FC = () => {
   }, [registerSection]);
 
   const specifications = [
-    { icon: <Target className="h-5 w-5" />, label: "Target range", value: "Up to 200m high, 35 m/s speed" },
-    { icon: <Droplets className="h-5 w-5" />, label: "Water range", value: "160m vertical, 200m horizontal" },
-    { icon: <Zap className="h-5 w-5" />, label: "Impact force", value: "40–60 kN (equivalent to 1,500 kg)" },
-    { icon: <Shield className="h-5 w-5" />, label: "Drone capacity", value: "1–3 kg (commercial & DIY UAVs)" },
+    { icon: <Target className="h-5 w-5" />, label: "Location", value: "Pilot project stationary. Later stages portable" },
+    { icon: <Target className="h-5 w-5" />, label: "Target drone types", value: "Up to 200m high, 35 m/s speed" },
+    { icon: <Droplets className="h-5 w-5" />, label: "Water cannon range", value: "160m vertical, 200m horizontal" },
+    { icon: <Zap className="h-5 w-5" />, label: "Impact force", value: "40–60 kN (equivalent to 4000 kg)" },
+    { icon: <Shield className="h-5 w-5" />, label: "Drone types", value: "1–6 kg (commercial & DIY UAVs)" },
     { icon: <Move3D className="h-5 w-5" />, label: "Aiming system", value: "F-effector precision targeting" }
   ];
 
@@ -69,26 +70,26 @@ const TechnicalSection: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <motion.h2
+          {/* <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl md:text-6xl font-bold mb-8 text-gray-900"
           >
             <span className="text-blue-600">Hydro</span>Shield
-          </motion.h2>
+          </motion.h2> */}
           
-          <motion.p
+          {/* <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
           >
             Precision water-based neutralization system with intelligent detection capabilities
-          </motion.p>
+          </motion.p> */}
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-top max-w-7xl mx-auto mb-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto mb-20">
           {/* Product Image */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -96,25 +97,30 @@ const TechnicalSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="relative"
           >
+
+            {/* Video embed */}
               <img 
                 src="/public/cannon-diagram-t.png" 
                 alt="HydroShield Anti-Drone System" 
                 className="w-full h-100 object-cover rounded-xl shadow-lg"
               />
-              {/* <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 w-full h-100 object-cover z-0 p-4 "
-              >
-                <source src="/public/tech-time.mp4" type="video/mp4" />
-              </video> */}
-              {/* <div className="absolute -top-4 -right-4 bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold shadow-lg">
-                HydroShield Pro
-              </div> */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.8, delay: 2.2 }}
+              className="w-100 aspect-[3/2] rounded-lg overflow-hidden shadow-lg"
+            >
+              <iframe
+                src="https://www.youtube.com/embed/DtMVeD4d63c?autoplay=1&controls=0&mute=1"
+                title="HydroShield Demo"
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; autoplay"
+                allowFullScreen
+              />
+            </motion.div>
 
           </motion.div>
+
 
           {/* Technical Specifications */}
           <motion.div

@@ -11,14 +11,19 @@ import DroneStats from './components/sections/DroneStats';
 import DroneStatsDiagram from './components/sections/DroneStatsDiagram';
 import CountermeasureComparison from './components/sections/CountermeasureComparison';
 import TechnicalSectionVid from './components/sections/TechnicalSectionVid';
+import TechUsed from './components/sections/TechUsed';
 
 function App() {
   return (
     <SectionScrollContext>
       <div className="bg-white text-gray-900 font-sans overflow-hidden">
-        <Navbar />
         <main className="snap-y snap-mandatory h-screen overflow-y-auto scroll-smooth">
-          <Hero />
+          <div className="snap-start">
+            <Navbar />
+            <Hero />
+          </div>
+          <TechUsed />
+          {/* <ComparisonNew /> */}
           <ProblemStatement />
           <TechnicalSection />
           <TechnicalSectionVid />

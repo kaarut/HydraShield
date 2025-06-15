@@ -2,19 +2,9 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useSectionScroll } from '../../contexts/SectionScrollContext';
+import { AlertTriangle, Plane, Building, Eye, TrendingUp, Droplets, CheckCircle, Crosshair, Network, Radio, Wifi, Bomb } from 'lucide-react';
 
-import { 
-  Crosshair, 
-  Network, 
-  Radio, 
-  Plane, 
-  Wifi, 
-  Bomb, 
-  Droplets, 
-  CheckCircle 
-} from 'lucide-react';
-
-const ComparisonNew: React.FC = () => {
+const TechUsed: React.FC = () => {
   const { registerSection } = useSectionScroll();
   const [ref, inView] = useInView({
     threshold: 0.3,
@@ -22,39 +12,39 @@ const ComparisonNew: React.FC = () => {
   });
 
   useEffect(() => {
-    registerSection('comparison');
+    registerSection('problemstatement');
   }, [registerSection]);
 
   const legacyTechnologies = [
     {
-      icon: <Crosshair className="h-12 w-12" />,
-      title: "Ballistics",
-      subtitle: "High collateral damage"
+      icon: <Radio className="h-8 w-8" />,
+      title: "RF Jamming + Hacking",
+      subtitle: "Range limited"
     },
     {
-      icon: <Network className="h-12 w-12" />,
-      title: "Net Capture",
-      subtitle: "Single-use, expensive"
+      icon: <AlertTriangle className="h-8 w-8" />,
+      title: "Laser",
+      subtitle: "Weather dependent and dangerous"
     },
     {
-      icon: <Radio className="h-12 w-12" />,
-      title: "RF Jamming",
-      subtitle: "Disrupts communications"
+      icon: <Wifi className="h-8 w-8" />,
+      title: "Microwave Beam",
+      subtitle: "Limited precision"
     },
     {
-      icon: <Plane className="h-12 w-12" />,
-      title: "Attack Drones",
-      subtitle: "Debris hazard"
+      icon: <Network className="h-8 w-8" />,
+      title: "Drones + Nets",
+      subtitle: "Close range only"
     },
     {
-      icon: <Wifi className="h-12 w-12" />,
-      title: "Signal Hijacking",
-      subtitle: "Limited effectiveness"
+      icon: <Plane className="h-8 w-8" />,
+      title: "Drone attacking drones",
+      subtitle: "High cost"
     },
     {
-      icon: <Bomb className="h-12 w-12" />,
-      title: "Explosive Devices",
-      subtitle: "Extreme destruction"
+      icon: <Bomb className="h-8 w-8" />,
+      title: "Explosive + Guns",
+      subtitle: "DEADLY"
     }
   ];
 
@@ -67,40 +57,64 @@ const ComparisonNew: React.FC = () => {
 
   return (
     <section
-      id="comparison"
+      id="problemstatement"
       ref={ref}
-      className="h-screen w-full snap-start relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50"
+      className="min-h-screen w-full snap-start relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100"
     >
-      <div className="container mx-auto px-6 z-10">
+      {/* Background pattern */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                           radial-gradient(circle at 75% 75%, rgba(99, 102, 241, 0.1) 0%, transparent 50%)`,
+        }}></div>
+      </div>
+      
+      <div className="container mx-auto px-6 z-10 py-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <motion.h2
+          <motion.h3
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-6xl font-bold mb-8 text-gray-900"
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-5xl md:text-4xl font-bold mb-8 text-gray-900 leading-tight"
           >
-            Beyond <span className="text-gray-500">Legacy Solutions</span>
-          </motion.h2>
+            Who's it <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">meant for?</span>
+          </motion.h3>
           
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-20"
           >
-            Current anti-drone technologies fall short in urban environments. 
-            HydroShield represents the next generation of safe, precise defense.
-          </motion.p>
+            <ul className="list-disc space-y-2 text-left inline-block">
+              <li><strong>VIP delegations:</strong> US President visiting Tallinn Old Town</li>
+              <li><strong>Critical infrastructure:</strong> power grids, pipes</li>
+              <li><strong>Airports:</strong></li>
+              <li><strong>Embassies:</strong></li>
+              <li><strong>Military bases:</strong></li>
+              <li><strong>Border:</strong> Eastern border with Narva</li>
+            </ul>
+          </motion.div>
+
+          <motion.h3
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-2xl md:text-4xl text font-bold text-gray-900 mt-16"
+          >
+           Technologies <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">used</span>
+          </motion.h3>
+      
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-7 gap-6 items-center max-w-7xl mx-auto">
           {/* Legacy Technologies - 6 cards */}
-          <div className="lg:col-span-6 grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="lg:col-span-5 grid grid-cols-2 md:grid-cols-3 gap-4">
             {legacyTechnologies.map((tech, index) => (
               <motion.div
                 key={index}
@@ -109,7 +123,7 @@ const ComparisonNew: React.FC = () => {
                 transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
                 className="bg-white border-2 border-gray-200 rounded-xl p-6 text-center transition-all duration-300 hover:shadow-md opacity-60 grayscale hover:grayscale-0 hover:opacity-80"
               >
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-gray-100 rounded-full mb-4 text-gray-400 mx-auto">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-100 rounded-full mb-4 text-gray-400 mx-auto">
                   {tech.icon}
                 </div>
                 
@@ -119,8 +133,8 @@ const ComparisonNew: React.FC = () => {
             ))}
           </div>
 
-          {/* New Solution Card - Prominent */}
-          <div className="lg:col-span-1 flex flex-col items-center space-y-6">
+          {/* HydroShield Premium Card */}
+          <div className="lg:col-span-2 flex flex-col items-center space-y-6">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
@@ -134,15 +148,15 @@ const ComparisonNew: React.FC = () => {
               <div className="relative bg-gradient-to-br from-blue-500 to-blue-600 border-2 border-blue-400 rounded-2xl p-8 text-center shadow-2xl hover:shadow-blue-500/50 transition-all duration-500 hover:scale-105 transform">
                 {/* Badge */}
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-1 rounded-full text-xs font-bold shadow-lg">
-                  NEW SOLUTION
+                  GO-TO SOLUTION
                 </div>
                 
-                <div className="inline-flex items-center justify-center w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full mb-6 text-white mx-auto">
-                  <Droplets className="h-16 w-16" />
+                <div className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full mb-6 text-white mx-auto">
+                  <Droplets className="h-12 w-12" />
                 </div>
                 
-                <h3 className="text-2xl font-bold mb-3 text-white">HydroShield</h3>
-                <p className="text-blue-100 text-sm mb-4">Water-based precision</p>
+                <h3 className="text-xl font-bold mb-3 text-white">💧 Water Cannon</h3>
+                <p className="text-blue-100 text-sm mb-4">Safe, effective precision</p>
                 
                 {/* Features */}
                 <div className="space-y-2 text-left">
@@ -159,31 +173,14 @@ const ComparisonNew: React.FC = () => {
                     </motion.div>
                   ))}
                 </div>
-                
-                <motion.button
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                  transition={{ duration: 0.6, delay: 1.8 }}
-                  className="mt-6 w-full bg-white text-blue-600 font-bold py-3 px-4 rounded-lg hover:bg-blue-50 transition-colors shadow-lg"
-                >
-                  Learn More
-                </motion.button>
               </div>
             </motion.div>
           </div>
         </div>
 
-        {/* Bottom text */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.8, delay: 2.0 }}
-          className="text-center mt-16"
-        >
-        </motion.div>
       </div>
     </section>
   );
 };
 
-export default ComparisonNew;
+export default TechUsed;

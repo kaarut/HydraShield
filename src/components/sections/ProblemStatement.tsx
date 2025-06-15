@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useSectionScroll } from '../../contexts/SectionScrollContext';
-import { AlertTriangle, Plane, Building, Eye, TrendingUp } from 'lucide-react';
+import { AlertTriangle, Plane, Building, Eye, TrendingUp, Droplets } from 'lucide-react';
 
 const ProblemStatement: React.FC = () => {
   const { registerSection } = useSectionScroll();
@@ -17,32 +17,32 @@ const ProblemStatement: React.FC = () => {
 
   const threats = [
     {
-      icon: <Plane className="h-8 w-8" />,
+      icon: <Droplets className="h-8 w-8" />,
       title: "Water Cannon",
       description: "The only physical counter measure in the urban area",
       stats: "***",
-      color: "from-red-500 to-red-600"
+      color: "from-blue-500 to-blue-600"
     },
     {
       icon: <Building className="h-8 w-8" />,
-      title: "Commercial Drones",
-      description: "6kg, 35m/s speed, 200m altitude",
+      title: "Sensors",
+      description: "Sensors are cheap and available",
       stats: "***",
       color: "from-orange-500 to-orange-600"
     },
     {
       icon: <Eye className="h-8 w-8" />,
-      title: "Water is accessible",
+      title: "Water is avaibale",
       description: "Urban areas already have the water supply and infrastructure",
       stats: "Unlimited access",
       color: "from-purple-500 to-purple-600"
     },
     {
-      icon: <Eye className="h-8 w-8" />,
-      title: "Technology is ready",
-      description: "Detection and hardware is already available",
+      icon: <Droplets className="h-8 w-8" />,
+      title: "AI is ready!",
+      description: "For drone detection and targeting AI models are accurate and open source",
       stats: "Unlimited access",
-      color: "from-purple-500 to-purple-600"
+      color: "from-green-500 to-green-600"
     }
   ];
 
@@ -71,7 +71,7 @@ const ProblemStatement: React.FC = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center space-x-3 bg-gradient-to-r from-red-500/10 to-orange-500/10 border border-red-200 rounded-full px-8 py-4 mb-10"
+            className="inline-flex items-center space-x-3 bg-gradient-to-r from-red-500/10 to-orange-500/10 border border-red-200 rounded-full px-4 py-4 mb-5"
           >
             <AlertTriangle className="h-6 w-6 text-red-600" />
             <span className="text-red-700 font-semibold text-lg">ESCALATING THREAT</span>
@@ -82,12 +82,12 @@ const ProblemStatement: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-5xl md:text-7xl font-bold mb-8 text-gray-900 leading-tight"
+            className="text-5xl md:text-7xl font-bold mb-4 text-gray-900 leading-tight"
           >
-            Urban Drones
+            The technology
             <br />
             <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">
-              Is a security risk
+              is already here
             </span>
           </motion.h2>
           
@@ -123,18 +123,18 @@ const ProblemStatement: React.FC = () => {
                 
                 <div className="mb-4">
                   <div className={`inline-block bg-gradient-to-r ${threat.color} bg-clip-text text-transparent font-bold text-sm mb-2`}>
-                    {threat.stats}
+                    {/* {threat.stats} */}
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">{threat.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{threat.description}</p>
                 </div>
 
-                <div className="flex items-center text-blue-600 font-medium text-sm group-hover:text-blue-700 transition-colors">
+                {/* <div className="flex items-center text-blue-600 font-medium text-sm group-hover:text-blue-700 transition-colors">
                   Learn More
                   <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
-                </div>
+                </div> */}
               </div>
             </motion.div>
           ))}

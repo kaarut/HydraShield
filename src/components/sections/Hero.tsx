@@ -16,6 +16,8 @@ const Hero: React.FC = () => {
 
   return (
     <>
+
+
       <section
         id="hero"
         className="h-screen w-full snap-start relative flex items-center justify-center overflow-hidden"
@@ -81,10 +83,10 @@ const Hero: React.FC = () => {
             className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-8 max-w-5xl mx-auto"
           >
             <span className="bg-gradient-to-r from-blue-300 to-white bg-clip-text text-transparent">
-              Autonomous Anti-Drone
+              AI Powered Water Cannon
             </span>
             <br />
-            <span className="text-white">Defense System</span>
+            <span className="text-white">for Fighting Drones</span>
           </motion.h1>
 
           <motion.p
@@ -93,8 +95,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto mb-12 leading-relaxed"
           >
-            AI-powered drone detection and neutralization system designed for urban environments. 
-            Protecting critical infrastructure with precision and reliability.
+            AI-powered drone detection and neutralization system designed for urban environments during peace time 
           </motion.p>
 
           <motion.div

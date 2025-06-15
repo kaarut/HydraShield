@@ -25,27 +25,33 @@ const TechnicalSectionVid: React.FC = () => {
 
   const sensorDetails = [
     {
-      icon: <Droplets className="h-6 w-6" />,
-      title: "Water Cannon",
-      description: "Autonomous high-pressure water cannon",
-      color: "from-blue-300 to-blue-400"
-    },
-    {
       icon: <Zap className="h-6 w-6" />,
-      title: "Computer Vision & AI",
+      title: "AI for drone detection and targeting",
       description: "OpenCV + R-CNN, RTMDem, YOLOv8",
       color: "from-purple-500 to-purple-600"
     },
     {
       icon: <Eye className="h-6 w-6" />,
       title: "Sensors", 
-      description: "Optical Cameras & RF triangulation & Acoustic sensors",
+      description: (
+        <ul className="list-disc pl-4 text-sm space-y-1">
+          <li>Optical Cameras</li>
+          <li>Radio Frequency triangulation</li>
+          <li>Acoustic sensors</li>
+          <li>Later radars</li>
+        </ul>
+      ),
       color: "from-green-500 to-green-600"
     },
     {
       icon: <Eye className="h-6 w-6" />,
       title: "Detection Box and Perimeter", 
-      description: "Perimeter gives us a warning that drone is approaching",
+      description: (
+        <ul className="list-disc pl-4 text-sm space-y-1">
+          <li>Perimeter gives us 2-minute warning that drone is approaching and direction</li>
+          <li>AI powered water cannon covers the detection box area</li>
+        </ul>
+      ),
       color: "from-blue-500 to-blue-600"
     }
   ];
@@ -87,9 +93,9 @@ const TechnicalSectionVid: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 leading-tight"
           >
-            Multi-Sensor
+            Sensors and
             <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-              {" "}Detection System
+              {" "} AI Models
             </span>
           </motion.h2>
           
@@ -99,8 +105,7 @@ const TechnicalSectionVid: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed"
           >
-            AI-powered sensor fusion technology combining radar, optical cameras, 
-            and thermal imaging for precise drone detection and classification.
+            Real-time sensors and AI models drive HydroShield’s fast, precise detection and targeting.
           </motion.p>
         </motion.div>
         
@@ -113,16 +118,19 @@ const TechnicalSectionVid: React.FC = () => {
             className="relative"
           >
             <div className="relative bg-gradient-to-br from-blue-500/10 to-indigo-500/10 rounded-2xl p-6 backdrop-blur-sm border border-blue-200/50">
-              <div className="relative rounded-xl overflow-hidden shadow-xl aspect-square">
+              <div className="relative rounded-xl overflow-hidden shadow-xl aspect-rectangle">
                 <video
                   autoPlay
                   muted
                   loop
                   playsInline
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 >
                   <source src="/public/drone-vid-2.mp4" type="video/mp4" />
                 </video>
+                <div className="absolute inset-0 flex items-center justify-center bg-black/5">
+                  {/* Overlay to ensure the video fits nicely within the container */}
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent"></div>
               </div>
               <div className="absolute -top-4 -right-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-xl font-bold shadow-lg text-sm">
