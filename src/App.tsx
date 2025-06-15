@@ -8,6 +8,9 @@ import ProblemStatement from './components/sections/ProblemStatement';
 import TechnicalSection from './components/sections/TechnicalSection';
 import ComparisonNew from './components/sections/ComparisonNew';
 import DroneStats from './components/sections/DroneStats';
+import DroneStatsDiagram from './components/sections/DroneStatsDiagram';
+import CountermeasureComparison from './components/sections/CountermeasureComparison';
+import TechnicalSectionVid from './components/sections/TechnicalSectionVid';
 
 function App() {
   return (
@@ -17,10 +20,14 @@ function App() {
         <main className="snap-y snap-mandatory h-screen overflow-y-auto scroll-smooth">
           <Hero />
           <ProblemStatement />
-          <DroneStats />
-          <ComparisonNew />
           <TechnicalSection />
-          <PeaceOfMind />
+          <TechnicalSectionVid />
+          {/* <DroneStatsDiagram /> */}
+          {/* <DroneStats /> */}
+          <CountermeasureComparison />
+          {/* <ComparisonNew /> */}
+          {/* <PeaceOfMind /> */}
+          <Hero />
           <Footer />
         </main>
       </div>

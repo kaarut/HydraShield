@@ -119,7 +119,7 @@ const ComparisonNew: React.FC = () => {
           </div>
 
           {/* New Solution Card - Prominent */}
-          <div className="lg:col-span-1 flex justify-center">
+          <div className="lg:col-span-1 flex flex-col items-center space-y-6">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
@@ -168,6 +168,22 @@ const ComparisonNew: React.FC = () => {
                   Learn More
                 </motion.button>
               </div>
+            </motion.div>
+
+            {/* Video embed */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.8, delay: 2.2 }}
+              className="w-48 aspect-[2/3] rounded-lg overflow-hidden shadow-lg"
+            >
+              <iframe
+                src="https://www.youtube.com/embed/DtMVeD4d63c"
+                title="HydroShield Demo"
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
             </motion.div>
           </div>
         </div>

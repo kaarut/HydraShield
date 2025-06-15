@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useSectionScroll } from '../../contexts/SectionScrollContext';
-import { Target, Zap, Droplets, Clock, Shield, Radar, Eye } from 'lucide-react';
+import { Target, Zap, Droplets, Clock, Shield, Radar, Eye, Move3D } from 'lucide-react';
 
 const TechnicalSection: React.FC = () => {
   const { registerSection } = useSectionScroll();
@@ -16,11 +16,11 @@ const TechnicalSection: React.FC = () => {
   }, [registerSection]);
 
   const specifications = [
-    { icon: <Target className="h-5 w-5" />, label: "Operating pressure", value: "80-150 bar (1,160-2,175 psi)" },
-    { icon: <Zap className="h-5 w-5" />, label: "Jet reach", value: "150m - 200m (wind-dependent)" },
-    { icon: <Droplets className="h-5 w-5" />, label: "Flow rate", value: "8-15 L/min (single nozzle)" },
-    { icon: <Clock className="h-5 w-5" />, label: "Reaction time", value: "<1.2s from detection → hit" },
-    { icon: <Shield className="h-5 w-5" />, label: "Duty cycle", value: "Continuous with 1000L buffer tank" }
+    { icon: <Target className="h-5 w-5" />, label: "Target range", value: "Up to 200m high, 35 m/s speed" },
+    { icon: <Droplets className="h-5 w-5" />, label: "Water range", value: "160m vertical, 200m horizontal" },
+    { icon: <Zap className="h-5 w-5" />, label: "Impact force", value: "40–60 kN (equivalent to 1,500 kg)" },
+    { icon: <Shield className="h-5 w-5" />, label: "Drone capacity", value: "1–3 kg (commercial & DIY UAVs)" },
+    { icon: <Move3D className="h-5 w-5" />, label: "Aiming system", value: "F-effector precision targeting" }
   ];
 
   const detectionFeatures = [
@@ -75,7 +75,7 @@ const TechnicalSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl md:text-6xl font-bold mb-8 text-gray-900"
           >
-            Advanced <span className="text-blue-600">Technology</span>
+            <span className="text-blue-600">Hydro</span>Shield
           </motion.h2>
           
           <motion.p
@@ -88,7 +88,7 @@ const TechnicalSection: React.FC = () => {
           </motion.p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto mb-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-top max-w-7xl mx-auto mb-20">
           {/* Product Image */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -96,16 +96,24 @@ const TechnicalSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="relative"
           >
-            <div className="bg-gradient-to-br from-blue-100 to-gray-100 rounded-2xl p-8 shadow-2xl">
               <img 
-                src="/public/model.png" 
+                src="/public/cannon-diagram-t.png" 
                 alt="HydroShield Anti-Drone System" 
                 className="w-full h-100 object-cover rounded-xl shadow-lg"
               />
-              <div className="absolute -top-4 -right-4 bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold shadow-lg">
+              {/* <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-100 object-cover z-0 p-4 "
+              >
+                <source src="/public/tech-time.mp4" type="video/mp4" />
+              </video> */}
+              {/* <div className="absolute -top-4 -right-4 bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold shadow-lg">
                 HydroShield Pro
-              </div>
-            </div>
+              </div> */}
+
           </motion.div>
 
           {/* Technical Specifications */}
