@@ -67,7 +67,7 @@ const ProblemStatement: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -76,7 +76,7 @@ const ProblemStatement: React.FC = () => {
             <AlertTriangle className="h-6 w-6 text-red-600" />
             <span className="text-red-700 font-semibold text-lg">ESCALATING THREAT</span>
             <TrendingUp className="h-5 w-5 text-red-600" />
-          </motion.div>
+          </motion.div> */}
           
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -88,6 +88,18 @@ const ProblemStatement: React.FC = () => {
             <br />
             <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">
               is already here
+            </span>
+          </motion.h2>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-5xl md:text-4xl font-bold mb-4 text-gray-900 leading-tight"
+          >
+            <br />
+            <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">
+              Innovation is combining that
             </span>
           </motion.h2>
           

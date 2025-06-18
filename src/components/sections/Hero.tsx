@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Shield, ArrowRight, Play, X } from 'lucide-react';
+import { Shield, ArrowRight, Play, X, Menu, AlertTriangle } from 'lucide-react';
 import { useSectionScroll } from '../../contexts/SectionScrollContext';
 
 const Hero: React.FC = () => {
   const { registerSection } = useSectionScroll();
   const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     registerSection('hero');
@@ -14,14 +15,99 @@ const Hero: React.FC = () => {
   const openVideo = () => setIsVideoOpen(true);
   const closeVideo = () => setIsVideoOpen(false);
 
+  const navLinks = [
+    { name: 'Home', section: 'hero' },
+    { name: 'Product', section: 'product' },
+    { name: 'Pricing', section: 'comparison' },
+    { name: 'Features', section: 'features' },
+    { name: 'Contact', section: 'footer' },
+  ];
+
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+    setMobileMenuOpen(false);
+  };
+
   return (
     <>
-
-
       <section
         id="hero"
         className="h-screen w-full snap-start relative flex items-center justify-center overflow-hidden"
       >
+        {/* Navbar - positioned absolutely within Hero */}
+        <motion.header
+          className="absolute top-0 left-0 right-0 z-30 py-4"
+          initial={{ y: -100 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="container mx-auto px-6 flex justify-between items-center">
+            <div className="flex items-center space-x-2">
+              <AlertTriangle className="text-orange-500" size={28} />
+              <span className="font-bold text-xl text-white">
+                HydroShield
+              </span>
+            </div>
+
+            <nav className="hidden md:flex space-x-8">
+              {navLinks.map((link) => (
+                <button
+                  key={link.section}
+                  onClick={() => scrollToSection(link.section)}
+                  className="font-medium transition-colors duration-300 text-white hover:text-orange-300"
+                >
+                  {link.name}
+                </button>
+              ))}
+            </nav>
+
+            <button
+              className="md:hidden text-orange-500"
+              onClick={() => setMobileMenuOpen(true)}
+            >
+              <Menu size={24} />
+            </button>
+
+            <button
+              className="rounded-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-6 font-medium hidden md:block transition-all duration-300"
+              onClick={() => scrollToSection('waitlist')}
+            >
+              Join Waitlist
+            </button>
+          </div>
+        </motion.header>
+
+        {/* Mobile menu */}
+        {mobileMenuOpen && (
+          <div className="fixed inset-0 bg-white z-50 md:hidden">
+            <div className="flex justify-end p-6">
+              <button onClick={() => setMobileMenuOpen(false)}>
+                <X size={24} className="text-gray-800" />
+              </button>
+            </div>
+            <div className="flex flex-col items-center space-y-6 p-8">
+              {navLinks.map((link) => (
+                <button
+                  key={link.section}
+                  onClick={() => scrollToSection(link.section)}
+                  className="font-medium text-lg text-gray-800"
+                >
+                  {link.name}
+                </button>
+              ))}
+              <button
+                className="rounded-full bg-orange-500 hover:bg-orange-600 text-white py-3 px-8 font-medium w-full mt-4"
+                onClick={() => scrollToSection('waitlist')}
+              >
+                Join Waitlist
+              </button>
+            </div>
+          </div>
+        )}
+
         {/* Background with enhanced blue gradient overlay */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900/95 via-blue-800/85 to-indigo-900/90 z-10"></div>

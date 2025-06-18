@@ -38,7 +38,7 @@ const ComparisonNew: React.FC = () => {
     },
     {
       icon: <Radio className="h-12 w-12" />,
-      title: "RF Jamming",
+      title: "Radio Frequency Jamming",
       subtitle: "Disrupts communications"
     },
     {

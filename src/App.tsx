@@ -2,7 +2,6 @@ import React from 'react';
 import Hero from './components/sections/Hero';
 import PeaceOfMind from './components/sections/PeaceOfMind';
 import Footer from './components/sections/Footer';
-import Navbar from './components/Navbar';
 import SectionScrollContext from './contexts/SectionScrollContext';
 import ProblemStatement from './components/sections/ProblemStatement';
 import TechnicalSection from './components/sections/TechnicalSection';
@@ -19,7 +18,6 @@ function App() {
       <div className="bg-white text-gray-900 font-sans overflow-hidden">
         <main className="snap-y snap-mandatory h-screen overflow-y-auto scroll-smooth">
           <div className="snap-start">
-            <Navbar />
             <Hero />
           </div>
           <TechUsed />

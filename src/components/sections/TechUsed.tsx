@@ -18,7 +18,7 @@ const TechUsed: React.FC = () => {
   const legacyTechnologies = [
     {
       icon: <Radio className="h-8 w-8" />,
-      title: "RF Jamming + Hacking",
+      title: "Radio Frequency Jamming + Hacking",
       subtitle: "Range limited"
     },
     {
@@ -55,6 +55,39 @@ const TechUsed: React.FC = () => {
     { icon: <CheckCircle className="h-4 w-4 text-green-300" />, text: "No debris" }
   ];
 
+  const targetAudience = [
+    {
+      icon: <Building className="h-8 w-8" />,
+      title: "VIP delegations",
+      subtitle: "US President visiting Tallinn Old Town"
+    },
+    {
+      icon: <Network className="h-8 w-8" />,
+      title: "Critical infrastructure",
+      subtitle: "power grids, pipes"
+    },
+    {
+      icon: <Plane className="h-8 w-8" />,
+      title: "Airports",
+      subtitle: ""
+    },
+    {
+      icon: <Building className="h-8 w-8" />,
+      title: "Embassies",
+      subtitle: ""
+    },
+    {
+      icon: <Eye className="h-8 w-8" />,
+      title: "Military bases",
+      subtitle: ""
+    },
+    {
+      icon: <Crosshair className="h-8 w-8" />,
+      title: "Border",
+      subtitle: "Eastern border with Narva"
+    }
+  ];
+
   return (
     <section
       id="problemstatement"
@@ -74,13 +107,13 @@ const TechUsed: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <motion.h3
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-5xl md:text-4xl font-bold mb-8 text-gray-900 leading-tight"
+            className="text-4xl md:text-3xl font-bold mb-6 text-gray-900 leading-tight"
           >
             Who's it <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">meant for?</span>
           </motion.h3>
@@ -89,27 +122,37 @@ const TechUsed: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-20"
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 max-w-6xl mx-auto mb-8"
           >
-            <ul className="list-disc space-y-2 text-left inline-block">
-              <li><strong>VIP delegations:</strong> US President visiting Tallinn Old Town</li>
-              <li><strong>Critical infrastructure:</strong> power grids, pipes</li>
-              <li><strong>Airports:</strong></li>
-              <li><strong>Embassies:</strong></li>
-              <li><strong>Military bases:</strong></li>
-              <li><strong>Border:</strong> Eastern border with Narva</li>
-            </ul>
+            {targetAudience.map((target, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+                className="bg-white border-2 border-gray-200 rounded-xl p-4 text-center transition-all duration-300 hover:shadow-md"
+              >
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full mb-3 text-gray-500 mx-auto">
+                  {target.icon}
+                </div>
+                
+                <h3 className="text-sm font-bold mb-1 text-gray-700">{target.title}</h3>
+                {target.subtitle && <p className="text-xs text-gray-500">{target.subtitle}</p>}
+              </motion.div>
+            ))}
           </motion.div>
+        </motion.div>
 
-          <motion.h3
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-2xl md:text-4xl text font-bold text-gray-900 mt-16"
-          >
-           Technologies <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">used</span>
-          </motion.h3>
-      
+        {/* Technologies used section header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="text-center mb-6"
+        >
+          <h4 className="text-3xl font-semibold text-center text-black mb-2">
+            Technologies <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">used</span>
+          </h4>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-7 gap-6 items-center max-w-7xl mx-auto">
@@ -155,7 +198,7 @@ const TechUsed: React.FC = () => {
                   <Droplets className="h-12 w-12" />
                 </div>
                 
-                <h3 className="text-xl font-bold mb-3 text-white">💧 Water Cannon</h3>
+                <h3 className="text-xl font-bold mb-3 text-white">Water Cannon</h3>
                 <p className="text-blue-100 text-sm mb-4">Safe, effective precision</p>
                 
                 {/* Features */}
