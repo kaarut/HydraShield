@@ -118,7 +118,7 @@ const Hero: React.FC = () => {
             playsInline
             className="absolute inset-0 w-full h-full object-cover z-0"
           >
-            <source src="/public/drone-vid-1.mp4" type="video/mp4" />
+            <source src="drone-vid-1.mp4" type="video/mp4" />
           </video>
         </div>
 

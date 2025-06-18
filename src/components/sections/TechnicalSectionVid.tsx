@@ -126,7 +126,7 @@ const TechnicalSectionVid: React.FC = () => {
                   playsInline
                   className="w-full h-full object-contain"
                 >
-                  <source src="/public/drone-vid-2.mp4" type="video/mp4" />
+                  <source src="drone-vid-2.mp4" type="video/mp4" />
                 </video>
                 <div className="absolute inset-0 flex items-center justify-center bg-black/5">
                   {/* Overlay to ensure the video fits nicely within the container */}

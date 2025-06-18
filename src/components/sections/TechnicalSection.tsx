@@ -100,7 +100,7 @@ const TechnicalSection: React.FC = () => {
 
             {/* Video embed */}
               <img 
-                src="/public/cannon-diagram-t.png" 
+                src="cannon-diagram-t.png" 
                 alt="HydroShield Anti-Drone System" 
                 className="w-full h-100 object-cover rounded-xl shadow-lg"
               />
